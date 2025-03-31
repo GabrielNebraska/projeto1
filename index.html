@@ -19,7 +19,8 @@
                 </div>
                 <div class="product-info">
                     <h1>{{product_title}}</h1>
-                    <p>In Stock</p>
+                    <p v-if="inStock">In Stock</p>
+                    <p v-else>out off Stock</p>
                 </div>
             </div>
         </div>
@@ -31,10 +32,12 @@
 
         createApp({
             setup() {
-                const message = ref('Hello vue!!')
+
                 return {
-                    message,
-                    image: ref ("assets/images/t-shirt-blue.png")
+                    product_title: ref('T-shirt'),
+                    image: ref ("assets/images/t-shirt-blue.png"),
+                    inStock: ref(false)
+       
                 }
             }
         }).mount('#app')
